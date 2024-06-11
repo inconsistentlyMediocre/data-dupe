@@ -61,6 +61,6 @@ func _on_detect_area_body_entered(body: Node2D) -> void:
 func _on_detect_area_body_exited(body: Node2D) -> void:
 	if body is Player or body is Enemy:
 		in_range.erase(body)
-		if in_range.is_empty() and can_open:
+		if in_range.is_empty() and is_open:
 			animation_player.play_backwards("open")
 			is_open = false
