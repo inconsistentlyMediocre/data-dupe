@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6inifoulqn4a"]
+
+[ext_resource type="FontFile" uid="uid://q7rn63h30u2f" path="res://assets/fonts/modern_dos/ModernDOS8x16.ttf" id="1_l303o"]
+[ext_resource type="Script" path="res://game/win.gd" id="1_roiq5"]
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_roiq5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l303o")
+text = "YOU WIN!
+press <R> to restart the game"
+horizontal_alignment = 1

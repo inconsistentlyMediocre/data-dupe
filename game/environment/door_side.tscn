@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3r02vp78wx5y"]
+
+[ext_resource type="Script" path="res://game/environment/door_side.gd" id="1_4bf8r"]
+[ext_resource type="Texture2D" uid="uid://weyyfmemh15y" path="res://assets/sprites/environment/door.png" id="1_4xqnp"]
+[ext_resource type="Material" uid="uid://dyilmg23mt6py" path="res://game/utils/chroma_replacer.material" id="2_st7qr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wba0q"]
+size = Vector2(16, 6)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_su83g"]
+polygon = PackedVector2Array(-8, -3, -8, 3, 8, 3, 8, -3)
+
+[node name="DoorSide" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_4bf8r")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
+material = ExtResource("2_st7qr")
+texture = ExtResource("1_4xqnp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_wba0q")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_su83g")

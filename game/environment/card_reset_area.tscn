@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwjkxww5gdo74"]
+
+[ext_resource type="Script" path="res://game/environment/card_reset_area.gd" id="1_o2tch"]
+
+[node name="CardResetArea" type="Area2D"]
+script = ExtResource("1_o2tch")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 16
+lifetime = 0.25
+emission_shape = 3
+emission_rect_extents = Vector2(16, 16)
+gravity = Vector2(0, 0)
+color = Color(1, 1, 0.286275, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

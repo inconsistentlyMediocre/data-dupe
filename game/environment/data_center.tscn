@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv4a8ahor4xlr"]
+
+[ext_resource type="Texture2D" uid="uid://dm2h4aopq3sd6" path="res://assets/sprites/environment/datacenter.png" id="1_qx23e"]
+[ext_resource type="Script" path="res://game/environment/data_center.gd" id="1_sldpm"]
+[ext_resource type="Material" uid="uid://cvi6aix5ad4gv" path="res://game/environment/data_center.material" id="2_17wge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xndje"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kkltw"]
+radius = 35.1283
+
+[node name="DataCenter" type="StaticBody2D"]
+script = ExtResource("1_sldpm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
+material = ExtResource("2_17wge")
+texture = ExtResource("1_qx23e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_xndje")
+
+[node name="ActivationArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
+shape = SubResource("CircleShape2D_kkltw")
+
+[connection signal="body_entered" from="ActivationArea" to="." method="_on_activation_area_body_entered"]
+[connection signal="body_exited" from="ActivationArea" to="." method="_on_activation_area_body_exited"]
