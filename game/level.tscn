@@ -244,7 +244,6 @@ position = Vector2(480, 584)
 [node name="BlueGuard" parent="." node_paths=PackedStringArray("path") instance=ExtResource("6_p43da")]
 position = Vector2(624, 688)
 collision_mask = 0
-color = 1
 path = NodePath("../BluePath")
 
 [node name="BluePath" type="Path2D" parent="."]

@@ -16,6 +16,22 @@ signal caught_player
 @export var is_running: bool = false
 @export var sweeping_raycast: RayCast2D
 
+# View Cone variables
+@export var vision_angle_deg: float = 60.0:
+	set(value):
+		vision_angle_deg = value
+		vision_angle = deg_to_rad(vision_angle_deg)
+@export var max_view_distance: float = 60.0
+@export var angle_between_rays_deg: float = 2.0:
+	set(value):
+		angle_between_rays_deg = value
+		angle_between_rays = deg_to_rad(angle_between_rays_deg)
+
+var vision_angle: float
+var angle_between_rays: float
+
+var visibility_points: PackedVector2Array
+
 var speed: float = 100.0
 var direction: Vector2 = Vector2.DOWN
 
@@ -24,18 +40,14 @@ var temp_positions: Array[Vector2]
 var current_position: Vector2
 var move_direction: Vector2 = Vector2.ZERO
 
-# View Cone variables
-var vision_angle: float = deg_to_rad(60.0)
-var max_view_distance: float = 60.0
-var angle_between_rays: float = deg_to_rad(2.0)
-var visibility_points: PackedVector2Array
-
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var vision_pivot: Node2D = $VisionPivot
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
+	vision_angle = deg_to_rad(vision_angle_deg)
+	angle_between_rays = deg_to_rad(angle_between_rays_deg)
 	if not Engine.is_editor_hint():
 		is_running = true
 		if not is_instance_valid(sweeping_raycast):
