@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://game/player/player_camera.gd" id="5_m2gbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7w30"]
-size = Vector2(16, 16)
+size = Vector2(8, 8)
 
 [sub_resource type="Animation" id="Animation_55rfn"]
 length = 0.001
@@ -503,7 +503,7 @@ hframes = 3
 vframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_f7w30")
 
 [node name="Card" type="Sprite2D" parent="."]
